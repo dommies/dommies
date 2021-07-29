@@ -10,12 +10,14 @@ contract Dommies is ERC721Enumerable, Ownable {
     uint public constant MAX_DOMMIES_PURCHASE = 20;
     uint public mintPrice = 69 * 10 ** 15; // 0.069 ETH    
     bool public isSalesActive = false;
-	string _baseTokenURI;
+    string _baseTokenURI;
     string _contractURI;
 
     //LFG
-    constructor(string memory baseURI) ERC721("Dommies", "DOMMIES")  {
+    constructor(string memory baseURI, string memory sContractURI, uint iPrice) ERC721("Dommies", "DOM")  {
         setBaseURI(baseURI);
+        setContractURI(sContractURI);
+        setMintPrice(iPrice);
     }
 
     function mintMyNFT(address _to, uint _count) public payable {
